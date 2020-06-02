@@ -1,0 +1,14 @@
+table{
+    
+    border:2px solid rgb(8, 8, 8);
+    background-color:white;
+    padding-bottom: 85px;
+    padding-right: 130px;
+}
+ul a{
+    display:block ;
+    color:gray;
+    margin: 30px;
+    font-size: 25px; 
+   
+}

@@ -1,0 +1,23 @@
+
+ul a{
+    display: inline-block;
+    padding-right: 20px;
+    color: black;
+}
+.table1{
+    border:2px solid rgb(8, 8, 8);
+    background-color: cyan;
+    width: 700px;
+}
+.table2{
+    border:2px solid rgb(8, 8, 8);
+    background-color: rgb(151, 159, 168);
+    width: 700px;
+    height: 140px;
+}
+.table3{
+    border: 2px solid red;
+    width: 100px;
+    height: 10px;
+    background-color:rgb(223, 223, 139);
+}
