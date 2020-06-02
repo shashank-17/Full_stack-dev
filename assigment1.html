@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <script>
+            function mycheck(){
+                var val1 = document.getElementById('txt1').value;
+                var val2 = document.getElementById('txt2').value;
+                var val3 = document.getElementById('txt3').value;
+                var val4 = document.getElementById('txt4').value;
+                var val5 = document.getElementById('txt5').value;
+                if(/^[A-Z]{1}[a-zA-Z]{3,7}$/.test(val1)){
+                    window.alert('valid username');
+                }
+                else{
+                    window.alert('invalid username');
+                    document.getElementById("txt1").focus();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        username : <input type="text" id="txt1" /><br />
+        full name : <input type="text" id="txt2" /><br />
+        department : <input type="text" id="txt3" /><br />
+        address : <input type="text" id="txt4" /><br />
+        password : <input type="password" id="txt5"/><br/>
+        <button type="button" onclick="mycheck()">validate</button>
+        </form>
+    </body>
+</html>
