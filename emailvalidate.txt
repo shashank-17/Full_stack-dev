@@ -1,5 +1,0 @@
-to validate email id                              1 match
-
-/^[a-zA-Z._-]{6,12}[@][a-z]{3,15}[.][a-z]{2,6}$/
-
-shashank@gmail.com
