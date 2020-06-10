@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="bootstrap-4.5.0-dist/bootstrap-4.5.0-dist/js/jquery.min.js"></script>
+<script>
+        $(document).ready(function(){
+      $(".btn1").click(function(){
+    $("#topnav li").fadeOut();
+  });
+  $(".btn2").click(function(){
+    $("#topnav li").fadeIn();
+  });
+});
+</script>
+<style>
+#topnav {
+    overflow: hidden;
+  background-color: aqua;
+}
+
+#topnav li {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 25px 30px ;
+  background-color: aqua;
+  font-size: 17px;
+}
+
+#topnav li:hover {
+  background-color: beige;
+  color: black;
+}
+
+#topnav li.active {
+  background-color: #2196F3;
+  margin-left: 30px;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<ul id="topnav">
+  <li class="active" href="#home">Home</li>
+  <li href="#about">About</li>
+  <li href="#contact">Contact</li>
+  <li href="#product">product</li>
+  <li href="#services">services</li>
+  <button class="btn1">Fade out</button>
+  <button class="btn2">Fade in</button>
+</ul>
+
+
+</body>
+</html>
