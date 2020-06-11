@@ -1,0 +1,22 @@
+<head>
+    <script src="bootstrap-4.5.0-dist/bootstrap-4.5.0-dist/js/jquery.min.js"></script>
+      <style>
+      div {
+        width: 150px;
+        height:150px;
+        background-color: black;
+      }
+      </style>
+      <script>
+          jQuery.fx.interval = 500;
+          $(document).ready(function(){
+          $( "input" ).click(function() {
+            $( "div" ).toggle(5000);
+          });
+          });
+      </script>
+    </head>
+    <body>
+    <p><input type="button" value="Run"></p>
+    <div></div>
+    </body>
