@@ -1,0 +1,71 @@
+body
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:100%;
+ background-color:#deebf0;
+}
+#w
+{
+ margin:0 auto;
+ text-align:center;
+ width:995px;
+}
+#w h1
+{
+ margin-top:50px;
+ font-size:45px;
+ color:#5a5e61;
+}
+#w h1 p
+{
+ font-size:18px;
+}
+#form_div
+{
+ background-color:#5bcef5;
+ width:300px;
+ margin-left:330px;
+ padding:10px;
+}
+#form_div #form_label
+{
+ margin:0px;
+ margin-bottom:20px;
+ font-size:25px;
+ font-weight:bold;
+ color:#0a0b0c;
+ text-decoration:underline;
+}
+#form_div input[type="text"],input[type="password"],input[type="number"],input[type="email"],input[type="date"]
+{
+ width:250px;
+ height:35px;
+ padding:10px;
+ margin-top:5px;
+}
+#form_div input[type="submit"]
+{
+ width:248px;
+ height:35px;
+ margin-top:5px;
+ margin-left:-3px;
+ background:none;
+ border:1px solid rgb(12, 12, 12);
+ color:rgb(14, 13, 13);
+ font-weight:bold;
+}
+#form_div #form_note
+{
+ color:#080808;
+ font-size:14px;
+ font-style:italic;
+}
+ #feedback,#address
+{
+    width:250px;
+    height:35px;
+    padding:10px;
+    margin-top:5px;
+   }

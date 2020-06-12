@@ -1,0 +1,47 @@
+<html>
+<head>
+<link href="assign.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="bootstrap-4.5.0-dist/bootstrap-4.5.0-dist/js/jquery.min.js"></script>
+<script type="text/javascript">
+function validate()
+{
+ var username=$("#username").val();
+ var pass=$("#password").val();
+ 
+ var username_regex=/(^[a-z A-Z][a-z A-Z 0-9]{5,12}$)/;
+ var password_regex1=/([a-z].*[A-Z])|([A-Z].*[a-z])([0-9])+([!,%,&,@,#,$,^,*,?,_,~])/;
+ var password_regex2=/([0-9])/;
+ var password_regex3=/([!,%,&,@,#,$,^,*,?,_,~])/;
+
+ if(username_regex.test(username)==false)
+ {
+  alert("username invalid");
+  return false;	
+ }
+ else if(pass.length<8 || password_regex1.test(pass)==false || password_regex2.test(pass)==false || password_regex3.test(pass)==false)
+ {
+  alert("Please Enter Strong Password");
+  return false;
+ }
+ else
+ {
+  return true;
+ }
+}
+</script>
+</head>
+<body>
+<div id="w">
+
+<div id="form_div">
+<p id="form_label">FORM</p>
+ <form method="post" onsubmit="return validate();">
+  <input type="text" id="username" placeholder="enter username">
+  <input type="password" id="password" placeholder="enter password">
+  <input type="submit" value="SUBMIT">
+ </form>
+</div>
+
+</div>
+</body>
+</html>
