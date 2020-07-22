@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="StyleSheet" />
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnLogin").click(function()
+                {
+                    var val1 = $("#txtname").val();
+                    var val2 = $("#txtfeedback").val();
+                    
+                    var reg=/^[A-Z][a-z A-Z]{6,12}$/;
+                    if(val1 == '' && val2 == ''){
+                        $('input[type="text"]').css("border","2px solid red");
+                        window.alert('Please enter name and feedback');
+                        
+                    }
+                    else{
+                        if(reg.test(val1)){
+                            window.alert('valid');
+                            var api_url = "http://localhost:3002/nurseupd";
+            var data = {
+              name: $("#txtname").val(),
+              feedback: $("#txtfeedback").val(),
+              }
+            $.ajax({
+              url: api_url,
+              type: "POST",
+              dataType: "Json",
+              data: data,
+              success: function (data) {
+                return;
+              },
+              error: function () {
+              },
+            });
+                        }
+                        else{
+                            window.alert('Invalid');
+                            
+                        }
+                    }
+                });
+            });
+        </script>
+        <style>
+            h1{
+                text-align: center;
+            }
+            body{
+                background-image: url("https://www.neeyamo.com/assets/images/2017/12/Time-Attendance-Management.png");
+                background-repeat: no-repeat;
+            
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Attendance Updation </h1>
+        <div class="container">
+            <form action="" method="POST" id="validateLogin">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="txtname" placeholder="Enter name" />
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback</label>
+                    <textarea class="form-control" id="txtfeedback" > </textarea>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnLogin" >Update</button>
+            </form>
+        </div>
+        
+    </body>
+</html>

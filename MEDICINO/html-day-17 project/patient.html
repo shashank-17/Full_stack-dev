@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="StyleSheet" />
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnLogin").click(function(){
+                    var val1 = $("#txtname").val();
+                    var val2 = $("#txtEmail").val();
+                    var val3 = $("#txtNumber").val();
+                    var val4 = $("#txtPassword").val();
+                    var val5 = $("#txtAddress").val();
+                    var us = /^[a-z A-Z]{6,12}$/;
+                    var em = /^[a-z A-Z 0-9 . - _]{4,8}[@][a-z]{3,5}[.][a-z]{2,4}$/;
+                    var num = /^[6-9][0-9]{9}$/;
+                    var pas = /^[a-z A-Z 0-9 ! @ # $]{6,12}$/;
+                    var add = /^[a-z A-Z 0-9]{6,12}$/;
+                    if(val1=='' && val2=='' && val3=='' && val4=='' && val5==''){
+                        $('input[type="text"]').css("border","2px solid red");
+                        $('input[type="number"]').css("border","2px solid red");
+                        window.alert('Please enter all fields');
+                    }
+                    else{
+                        
+                        if(us.test(val1) && em.test(val2) && num.test(val3) && pas.test(val4) && add.test(val5)){
+                            window.alert('Valid');
+                            var api_url = "http://localhost:3002/patient";
+            var data = {
+              username: $("#txtUsername").val(),
+              emailid: $("#txtEmail").val(),
+              mobilenumber: $("#txtNumber").val(),
+              password1: $("#txtPassword").val(),
+              address:$("#txtAddress").val(),
+              }
+            $.ajax({
+              url: api_url,
+              type: "POST",
+              dataType: "Json",
+              data: data,
+              success: function (data) {
+                return;
+              },
+              error: function () {
+              },
+            });
+                        }
+                        else{
+                            window.alert('Invalid');
+                        }
+                    }
+                });
+            });
+        
+        </script>
+        <style>
+            h1{
+                text-align: center;
+                color: black;
+                font-family: serif;
+                font-style: italic;
+            }
+            body{
+                background-image: url("https://associatesinmedtox.com/wp-content/uploads/2016/12/lvkwE1.jpg");
+                color: black;
+            
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>PATIENT INFORMATION </h1>
+        <div class="container">
+            <form action="" method="POST" id="validateLogin">
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" class="form-control" id="txtUsername" placeholder="Enter name" />
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="text" class="form-control" id="txtEmail" placeholder="Enter Email" />
+                </div>
+                <div class="form-group">
+                    <label for="Mobile Number">Mobile Number</label>
+                    <input type="number" class="form-control" id="txtNumber" placeholder="Enter Mobile Number" />
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="txtPassword" placeholder="Enter Password" />
+                </div>
+                <div class="form-group">
+                    <label for="Address"><Address>Address</Address></label>
+                    <textarea rows="5" cols="10" class="form-control" id="txtAddress" placeholder="Enter Address"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnLogin">Update</button>
+            </form>
+        </div>
+    </body>

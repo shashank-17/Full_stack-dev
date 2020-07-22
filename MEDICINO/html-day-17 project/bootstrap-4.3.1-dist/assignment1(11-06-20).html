@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="StyleSheet" />
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnLogin").click(function(){
+                    var val1 = $("#txtEmail").val();
+                    var val2 = $("#txtPassword").val();
+                    
+                    var reg=/^[a-z A-Z]{6,12}$/;
+                    if(val1 == '' && val2 == ''){
+                        $('input[type="text"]').css("border","2px solid red");
+                        window.alert('Please enter email and password');
+                        
+                    }
+                    else{
+                        if(reg.test(val1) && reg.test(val2)){
+                            window.alert('valid');
+                        }
+                        else{
+                            window.alert('Invalid');
+                            
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <form action="" method="POST" id="validateLogin">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="text" class="form-control" id="txtEmail" placeholder="Enter Email" />
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="text" class="form-control" id="txtPassword" placeholder="Enter Password" />
+                </div>
+                <button type="button" class="btn btn-primary" id="btnLogin">Login</button>
+            </form>
+        </div>
+    </body>
+</html>

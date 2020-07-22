@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="StyleSheet" />
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="bootstrap-4.3.1-dist/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#btnLogin").click(function(){
+                    var val1 = $("#txtUsername").val();
+                    var val2 = $("#txtNumber").val();
+                    var val3 = $("#txtaddress").val();
+                    var val4 = $("#txtstatus").val();
+                    var us = /^[a-z A-Z]{6,12}$/;
+                    var num = /^[6-9][0-9]{9}$/;
+                    if(val1=='' && val2=='' && val3=='' && val4==''){
+                        $('input[type="text"]').css("border","2px solid red");
+                        $('input[type="number"]').css("border","2px solid red");
+                        window.alert('Please enter all fields');
+                    }
+                        
+                        if(us.test(val1) && num.test(val2)){
+                            window.alert('Valid');
+                            var api_url = "http://localhost:3002/reports";
+            var data = {
+              patientname: $("#txtUsername").val(),
+              mobilenumber: $("#txtNumber").val(),
+              address:$("#txtAddress").val(),
+              status:$("#txtAddress1").val(),
+              }
+            $.ajax({
+              url: api_url,
+              type: "POST",
+              dataType: "Json",
+              data: data,
+              success: function (data) {
+                return;
+              },
+              error: function () {
+              },
+            });
+                        }
+                        else{
+                            window.alert('Invalid');
+                        }
+            
+                });
+            });
+        
+        </script>
+        <style>
+            body{
+                background-image: url("https://i.pinimg.com/originals/b2/14/42/b214425a7284ce662493da77720b9410.jpg");
+                background-repeat:no-repeat;
+                background-size: cover;
+            height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form action="" method="POST" id="validateLogin">
+                <div class="form-group">
+                    <label for="Username">Patient's Name</label>
+                    <input type="text" class="form-control" id="txtUsername" placeholder="Enter patient name" />
+                </div>
+                <div class="form-group">
+                    <label for="Mobile Number">Mobile Number</label>
+                    <input type="number" class="form-control" id="txtNumber" placeholder="Enter Mobile Number" />
+                </div>
+                <div class="form-group">
+                    <label for="Address"><Address>Address</Address></label>
+                    <textarea rows="5" cols="10" class="form-control" id="txtAddress" placeholder="Enter Address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Address"><Address>Status</Address></label>
+                    <textarea rows="5" cols="10" class="form-control" id="txtAddress1" placeholder="Enter enter the status of treatment"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" id="btnLogin">Update</button>
+            </form>
+        </div>
+    </body>
